@@ -1,0 +1,1 @@
+MySQLdb.connect('nowaw.mysql.pythonanywhere-services.com', user='nowaw', password='food1231231')
