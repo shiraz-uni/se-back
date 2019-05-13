@@ -25,7 +25,7 @@ SECRET_KEY = 'mh*!j^(x4#b)j4$34z0$oy23bba5)5=2h!z!aje3o$8a4r9*+v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
