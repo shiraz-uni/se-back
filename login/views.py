@@ -8,12 +8,17 @@ import json
 import time
 import sqlite3
 import secrets
+from ..database.models import Student
 
 
 def cridentials_test(user, password):
-	'''check credentials against the hardcoded database'''
-	if user == 'admin' and password == 'admin':
+	#'''check credentials against the hardcoded database'''
+	# if user == 'admin' and password == 'admin':
+	#	return True
+	c = Student.objects.get(studentNo=user, password=password)
+	if c.password == password:
 		return True
+
 
 def token_check(token):
 	connection = sqlite3.connect('ucon.db')
@@ -119,59 +124,4 @@ def logout(request):
 		return HttpResponse('invalid request')
 
 def test(request):
-	#return HttpResponse(len(request.read()))
-	#return JsonResponse({'foo': 'bar'})
-	#return HttpResponse(request.META['HTTP_USER_AGENT'])
-	#return HttpResponse(request.META['REMOTE_ADDR']) # for getting the ip
-	if request.method == 'POST':
-		return HttpResponse('' + ' and Your post body is ' + request.read())
-	return HttpResponse('' + '''
-
-<head>
-<style>
-div {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  position: relative;
-  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-  animation-name: example;
-  animation-duration: 1s;
-  animation-iteration-count: 10000;
-}
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; left:200px; top:0px;}
-  50%  {background-color:blue; left:200px; top:200px;}
-  75%  {background-color:green; left:0px; top:200px;}
-  100% {background-color:red; left:0px; top:0px;}
-}
-
-/* Standard syntax */
-@keyframes example {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; left:200px; top:0px;}
-  50%  {background-color:blue; left:200px; top:200px;}
-  75%  {background-color:green; left:0px; top:200px;}
-  100% {background-color:red; left:0px; top:0px;}
-}
-</style>
-</head>
-<body>
-
-<div></div>
-
-</body>
-
-
-		''')
-
-
-'''curl -d '{"token" : "ef7f07722a8bf1bdac032595ff698c1a"}' -H "Content-Type: applidation/json" -X POST localhost:8080/login/already_in
-'''
-
-'''curl -d '{"token" : "ef7f07722a8bf1bdac032595ff698c1a"}' -H "Content-Type: applidation/json" -X POST localhost:8080/login/already_in
-'''
+	return JsonResponse({'token': 'some123random123token'})

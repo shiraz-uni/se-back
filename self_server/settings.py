@@ -81,6 +81,9 @@ DATABASES = {
         'USER': 'nowaw',
         'PASSWORD': 'food1231231',
         'HOST': 'nowaw.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
