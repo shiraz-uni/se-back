@@ -8,7 +8,7 @@ import json
 import time
 import sqlite3
 import secrets
-from ..database.models import Student
+from .models import Student
 
 
 def cridentials_test(user, password):
