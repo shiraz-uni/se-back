@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 import time
 import secrets
-from .models import Student, cred
+from .models import StudentN, cred
 
 
 def cridentials_test(user, password):
