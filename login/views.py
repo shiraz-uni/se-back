@@ -1,36 +1,24 @@
-#from django.shortcuts import render
-# TODO solve credentials check
-
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import time
-import sqlite3
 import secrets
-from .models import Student
+from .models import Student, cred
 
 
 def cridentials_test(user, password):
-	#'''check credentials against the hardcoded database'''
-	# if user == 'admin' and password == 'admin':
-	#	return True
-	c = Student.objects.get(studentNo=user, password=password)
-	if c.password == password:
+	c = Student.objects.get(studentNo=user)
+	if c is not None and c.password == password:
 		return True
 
 
 def token_check(token):
-	connection = sqlite3.connect('ucon.db')
-	cursor = connection.cursor()
-	cursor.execute("select * from cred;")
-	cc = cursor.fetchone()
-	while cc is not None:
-		if cc[2] == token:
-			connection.close()
-			return True
-	connection.close()
-	return False
+	st = cred.objects.get(token=token)
+	if st is not None:
+		return True
+	else:
+		return False
 
 @csrf_exempt
 def login(request):
@@ -51,12 +39,8 @@ def login(request):
 		user = j['user']
 		password = j['password']
 		if cridentials_test(user, password):
-			connection = sqlite3.connect('ucon.db')
-			cursor = connection.cursor()
 			tok = secrets.token_hex(16)
-			cursor.execute("insert into cred values ('" + user + "', " + str(time.time()) + ", '" + str(tok) + "');")
-			connection.commit()
-			connection.close()
+			cred(username = user, ti = time.time(), token = tok).save()
 			return HttpResponse(tok)
 		else:
 			return HttpResponse("Wrong credentials")
@@ -77,17 +61,11 @@ def already_in(request):
 		j = json.loads(req)
 		token = j['token']
 		if token_check(token):
-			connection = sqlite3.connect('ucon.db')
-			cursor = connection.cursor()
-			cursor.execute("select * from cred;")
-			cc = cursor.fetchone()
-			while cc is not None:
-				if cc[2] == str(token):
-					connection.close()
-					return HttpResponse(token)
-				cc.fetchone()
-			connection.close()
-			return HttpResponse('You are not lgged in')
+			st = cred.objects.get(token = token)
+			if st is not None:
+				return HttpResponse(token)
+			else:
+				return HttpResponse('You are not lgged in')
 		else:
 			return HttpResponse("Wrong credentials")
 	else:
@@ -105,19 +83,12 @@ def logout(request):
 		j = json.loads(req)
 		token = j['token']
 		if token_check(token):
-			connection = sqlite3.connect('ucon.db')
-			cursor = connection.cursor()
-			cursor1 = connection.cursor()
-			cursor.execute("select * from cred;")
-			cc = cursor.fetchone()
-			while cc is not None:
-				if cc[2] == str(token):
-					cursor1.execute("delete from cred where token = '" + token +"';")
-					connection.commit()
-					connection.close()
-					return HttpResponse('logged out')
-				cc.fetchone()
-			return HttpResponse('You are not lgged in')
+			st = cred.objects.get(token = token)
+			if st is not None:
+				st.delete()
+				return HttpResponse("OK")
+			else:
+				return HttpResponse('You are not lgged in')
 		else:
 			return HttpResponse("Wrong credentials")
 	else:
