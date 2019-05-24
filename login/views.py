@@ -8,7 +8,7 @@ from .models import StudentN, cred
 
 
 def cridentials_test(user, password):
-	c = Student.objects.get(studentNo=user)
+	c = StudentN.objects.get(student_no=user)
 	if c is not None and c.password == password:
 		return True
 
