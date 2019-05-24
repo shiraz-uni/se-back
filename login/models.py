@@ -51,12 +51,12 @@ class CouponN(models.Model):
     state = models.BooleanField()
     food = models.ForeignKey('FoodMenuN', on_delete=models.CASCADE)
     student = models.ForeignKey('StudentN', on_delete=models.CASCADE)
-    self = models.ForeignKey('SelfListN', on_delete=models.CASCADE)
+    self_id = models.ForeignKey('SelfListN', on_delete=models.CASCADE)
 
 
 class TransactionN(models.Model):
     student = models.ForeignKey('StudentN', on_delete=models.CASCADE)
-    price = models.IntegerField()
+    price = models.FloatField()
     bank = models.CharField(max_length=100)
     date = models.DateField()
 
