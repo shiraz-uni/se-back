@@ -126,22 +126,20 @@ def week_data(request):
 			data["self_list"] = self_list
 			transactions_dict = {}
 
-			te = TransactionN.objects.get(student =temp_user_id)
+			te = sto.transactionn_set.all()
 			#for _ in te:
-			#	transactions_dict[str(_.date)] = {_.bank : str(_.price)}
-			transactions_dict[str(te.date)] = {te.bank : str(te.price)}
-			data["transactions"] = transactions_dict
+			#	transactions_dict[str(_.date)] = {str(_.bank) : str(_.price)}
+			#transactions_dict[str(te.date)] = {te.bank : str(te.price)}
+			#data["transactions"] = transactions_dict
 
 			coupons_dict = {}
 
-			cq = CouponN.objects.get(student = temp_user_id)
+			cq = sto.couponn_set.all()
 			#for _ in cq:
 			#	coupons_dict["is_active"] = str(_.state)
-			#	coupons_dict["food"] = FoodMenuN.objects.get(Key_id = _.food).food_name1
+			#	coupons_dict["food"] = FoodMenuN.objects.get(key_id = _.food).food_name1
 			#	coupons_dict["self"] = SelfListN.objects.get(self_id = _.self_id).self_name
-
-			coupons_dict["is_active"] = str(cq.state)
-			#coupons_dict["self"] = SelfListN.objects.get(self_id = cq.self_id).self_name
+			#	coupons_dict["is_active"] = str(cq.state)
 
 			data["coupons"] = coupons_dict
 
