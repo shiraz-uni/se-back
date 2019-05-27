@@ -238,5 +238,3 @@ def self_data(request):
             return HttpResponse('You are not lgged in')
     else:
         return HttpResponse('invalid request')
-
-
