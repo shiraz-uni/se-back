@@ -1,6 +1,6 @@
-FoodMenuN(key_id='10', price1=1500, price2=1350, food_name1='زرشك پلو با مرغ با ماست', food_name2=' چلو كباب كوبيده و گوجه',date=datetime.datetime.now(), meal_type='lunch')
-FoodMenuN(key_id='101', price1=1500, price2=1350, food_name1='خوراک املت با عدسي', food_name2='چلو خورشت سبزي با ماست',date=datetime.datetime.now(), meal_type='dinner')
-FoodMenuN(key_id='100', price1=1500, price2=1350, food_name1='املت', food_name2='نون پنیر', date=datetime.datetime.now(), meal_type='breakfast')
+FoodMenuN(key_id='100', price1=1500, price2=1350, food_name1='زرشك پلو با مرغ با ماست', food_name2=' چلو كباب كوبيده و گوجه',date=datetime.datetime.now(), meal_type='lunch')
+FoodMenuN(key_id='1001', price1=1500, price2=1350, food_name1='خوراک املت با عدسي', food_name2='چلو خورشت سبزي با ماست',date=datetime.datetime.now(), meal_type='dinner')
+FoodMenuN(key_id='1000', price1=1500, price2=1350, food_name1='املت', food_name2='نون پنیر', date=datetime.datetime.now(), meal_type='breakfast')
 
 
 StudentN(first_name='حمید', last_name='حسنی', student_no="10001", std_type='خوابگاهی', credit=5000, password='123')
