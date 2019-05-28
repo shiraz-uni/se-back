@@ -194,23 +194,32 @@ def get_week_data():
     s_d = {}
 
     for _ in week_map():
-        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
-        s_d[str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
+        try:
+            sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price1
+            sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price2
+            sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
+            sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
+            s_d[str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
+        except:
+            pass
     for _ in week_map():
-        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
-        s_d[str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
+        try:
+            sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price1
+            sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price2
+            sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
+            sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
+            s_d[str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
+        except:
+            pass
     for _ in week_map():
-        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
-        s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
+        try:
+            sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price1
+            sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price2
+            sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
+            sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
+            s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
+        except:
+            pass
 
 # def get_week_data(data, day):
 #     saterday = get_saterday(day)
