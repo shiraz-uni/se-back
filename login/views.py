@@ -177,15 +177,15 @@ def week_data(request):
 
 
 def week_map():
-    if math.floor(datetime.now().day / 7) is 0:
+    if math.floor(datetime.now().day / 7) == 0:
         return [1, 2, 3, 4, 5, 6]
-    elif math.floor(datetime.now().day / 7) is 1:
+    elif math.floor(datetime.now().day / 7) == 1:
         return [7, 8, 9, 10, 11, 12, 13]
-    elif math.floor(datetime.now().day / 7) is 2:
+    elif math.floor(datetime.now().day / 7) == 2:
         return [14, 15, 16, 17, 18, 19, 20]
-    elif math.floor(datetime.now().day / 7) is 3:
+    elif math.floor(datetime.now().day / 7) == 3:
         return [21, 22, 23, 24, 25, 26, 27]
-    elif math.floor(datetime.now().day / 7) is 4:
+    elif math.floor(datetime.now().day / 7) == 4:
         return [28, 29, 30]
 
 
