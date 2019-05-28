@@ -220,6 +220,7 @@ def get_week_data():
             s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
         except:
             pass
+    return s_d
 
 # def get_week_data(data, day):
 #     saterday = get_saterday(day)
