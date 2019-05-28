@@ -183,10 +183,8 @@ def week_map():
         return [7, 8, 9, 10, 11, 12, 13]
     elif math.floor(datetime.now().day / 7) == 2:
         return [14, 15, 16, 17, 18, 19, 20]
-    elif math.floor(datetime.now().day / 7) == 3:
-        return [21, 22, 23, 24, 25, 26, 27]
-    elif math.floor(datetime.now().day / 7) == 4:
-        return [28, 29, 30]
+    else:
+        return [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 
 def get_week_data():
