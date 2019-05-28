@@ -6,6 +6,7 @@ import time
 import secrets
 from .models import StudentN, cred, SelfListN, TransactionN, FoodMenuN, CouponN
 from datetime import datetime
+from datetime import timedelta
 
 
 def cridentials_test(user, password):
@@ -157,8 +158,7 @@ def week_data(request):
         return HttpResponse('invalid request')
 
 
-def get_saterday():
-    today = datetime.now()
+def get_saterday(today):
     if today.weekday() < 5:
         saturday = datetime(today.year, today.month, today.day - today.weekday() - 2)
     elif today.weekday() > 5:
@@ -168,30 +168,53 @@ def get_saterday():
     return saturday
 
 
-def get_week_data(data):
-    saterday = get_saterday()
+def get_week_data(data, day):
+    saterday = get_saterday(day)
     sf_data = {}
     for _ in range(7):
-        sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="breakfast").price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="breakfast").price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="breakfast").food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="breakfast").food_name1
-        sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="breakfast").credit
+        sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                           meal_type="breakfast").price1
+        sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                           meal_type="breakfast").price2
+        sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                               meal_type="breakfast").food_name1
+        sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                               meal_type="breakfast").food_name1
+        sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                           meal_type="breakfast").credit
         data["date", "meal_type"] = sf_data
     for _ in range(7):
-        sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="dinner").price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="dinner").price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="dinner").food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="dinner").food_name1
-        sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="dinner").credit
+        sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="dinner").price1
+        sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="dinner").price2
+        sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                               meal_type="dinner").food_name1
+        sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                               meal_type="dinner").food_name1
+        sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="dinner").credit
         data["date", "meal_type"] = sf_data
     for _ in range(7):
-        sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="lunch").price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="lunch").price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="lunch").food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="lunch").food_name1
-        sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + _, meal_type="lunch").credit
+        sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="lunch").price1
+        sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="lunch").price2
+        sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                               meal_type="lunch").food_name1
+        sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+                                                               meal_type="lunch").food_name1
+        sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="lunch").credit
         data["date", "meal_type"] = sf_data
+
+
+def get_week_coupons(data, day, std):
+    saterday = get_saterday(day)
+    coupon = {}
+    lst = list(CouponN.objects.filter(student=std).filter(food__date__gte=saterday,
+                                                          food__date__lte=saterday + timedelta(days=6)))
+    i = 0
+    while i < len(lst):
+        coupon["state"] = lst[i].state
+        coupon["coupon_id"] = lst[i].coupon_id
+        coupon["food"] = lst[i].food
+        coupon["self_id"] = lst[i].self_id
+        data["food"] = coupon
 
 
 @csrf_exempt
@@ -207,7 +230,8 @@ def self_data(request):
             st = cred.objects.get(token=token)
             temp_user_id = st.username
             data = {}
-            get_week_data(data)
+            get_week_data(data, datetime.now())
+            get_week_coupons(data, datetime.now(), st)
 
             return JsonResponse(data)
         else:
