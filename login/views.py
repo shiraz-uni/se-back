@@ -129,7 +129,7 @@ def week_data(request):
             for _ in sl:
                 self_list[_.self_id] = _.self_name
 
-            data["self_list"] = self_list
+            # data["self_list"] = self_list
             transactions_dict = {}
 
             te = TransactionN.objects.get(student=temp_user_id)
