@@ -158,15 +158,21 @@ def week_data(request):
         return HttpResponse('invalid request')
 
 
-def get_saterday(today):
-    if today.weekday() < 5:
-        saturday = datetime(today.year, today.month, today.day - today.weekday() - 2)
-    elif today.weekday() > 5:
-        saturday = datetime(today.year, today.month, today.day - 1)
-    else:
-        saturday = today
-    return saturday
-
+def get_saterday():
+    if datetime.now().weekday() is 5:
+        return datetime.now()
+    elif datetime.now().weekday() is 6:
+        return datetime.now() - timedelta(days=1)
+    elif datetime.now().weekday() is 0:
+        return datetime.now() - timedelta(days=2)
+    elif datetime.now().weekday() is 1:
+        return datetime.now() - timedelta(days=3)
+    elif datetime.now().weekday() is 2:
+        return datetime.now() - timedelta(days=4)
+    elif datetime.now().weekday() is 3:
+        return datetime.now() - timedelta(days=5)
+    elif datetime.now().weekday() is 4:
+        return datetime.now() - timedelta(days=6)
 
 def get_week_data(data, day):
     saterday = get_saterday(day)
@@ -212,10 +218,32 @@ def get_week_coupons(data, day, std):
     while i < len(lst):
         coupon["state"] = lst[i].state
         coupon["coupon_id"] = lst[i].coupon_id
-        coupon["food"] = lst[i].food
+        coupon["food"] = lst[i].food.key_id #Todo send food_name + ...
         coupon["self_id"] = lst[i].self_id
         data["food"] = coupon
 
+
+# @csrf_exempt
+# def self_data(request):
+#     '''remove the token and the username for the database'''
+#     if request.method == 'GET':
+#         return HttpResponse('Post')
+#     elif request.method == 'POST':
+#         req = request.read()
+#         j = json.loads(req)
+#         token = j['token']
+#         if token_check(token):
+#             st = cred.objects.get(token=token)
+#             temp_user_id = st.username
+#             data = {}
+#             get_week_data(data, datetime.now())
+#             get_week_coupons(data, datetime.now(), st)
+#
+#             return JsonResponse(data)
+#         else:
+#             return HttpResponse('You are not lgged in')
+#     else:
+#         return HttpResponse('invalid request')
 
 @csrf_exempt
 def self_data(request):
@@ -227,11 +255,8 @@ def self_data(request):
         j = json.loads(req)
         token = j['token']
         if token_check(token):
-            st = cred.objects.get(token=token)
-            temp_user_id = st.username
             data = {}
             get_week_data(data, datetime.now())
-            get_week_coupons(data, datetime.now(), st)
 
             return JsonResponse(data)
         else:
