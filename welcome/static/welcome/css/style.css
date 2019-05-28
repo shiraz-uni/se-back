@@ -1,0 +1,14 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+canvas {
+  margin: 0;
+  position: absolute;
+}
