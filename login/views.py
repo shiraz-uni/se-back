@@ -194,25 +194,25 @@ def get_week_data():
     s_d = {}
 
     for _ in week_map():
-        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast").price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast").price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast").food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast").food_name1
-        sf_data["key_id"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast").credit
+        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price1
+        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price2
+        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
+        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
+        sf_data["key_id"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].credit
         s_d[str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
     for _ in week_map():
-        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch").price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch").price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch").food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch").food_name1
-        sf_data["key_id"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch").credit
+        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price1
+        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price2
+        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
+        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
+        sf_data["key_id"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].credit
         s_d[str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
     for _ in week_map():
-        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner").price1
-        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner").price2
-        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner").food_name1
-        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner").food_name1
-        sf_data["key_id"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner").credit
+        sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price1
+        sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price2
+        sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
+        sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
+        sf_data["key_id"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].credit
         s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
 
 # def get_week_data(data, day):
