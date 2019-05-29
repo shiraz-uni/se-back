@@ -8,6 +8,5 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('already_in', views.already_in, name='already_in'),
     path('week_data', views.week_data, name='week_data'),
-    path('get_week_data', views.get_week_data, name='get_week_data'),
     path('self_data', views.self_data, name='self_data'),
 ]

@@ -336,6 +336,17 @@ def get_week_coupons(day, std):
 #     else:
 #         return HttpResponse('invalid request')
 
+
+def get_student(sto):
+    std = {}
+    std["first_name"] = sto.first_name
+    std["last_name"] = sto.last_name
+    std["student_no"] = sto.student_no
+    std["student_type"] = sto.std_type
+    std["credit"] = sto.credit
+    return std
+
+
 @csrf_exempt
 def self_data(request):
     '''remove the token and the username for the database'''
@@ -345,8 +356,14 @@ def self_data(request):
         req = request.read()
         j = json.loads(req)
         token = j['token']
+        st = cred.objects.get(token=token)
+        temp_user_id = st.username
+        std = StudentN.objects.get(student_no=temp_user_id)
+        data = {}
         if token_check(token):
-            data = get_week_data()
+            data["self_data"] = get_week_data()
+            data["student"] = get_student(std)
+            data["coupons"] = get_week_coupons(datetime.now(), std)
 
             return JsonResponse(data)
         else:
