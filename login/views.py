@@ -177,6 +177,12 @@ def week_data(request):
 
 
 def week_map():
+    ofs = datetime.now().day - datetime.now().weekday() - 1
+    bad_ofs = [32, 33, 34, 35, 36, 37, 38]
+    a =  [_ for _ in range(ofs, ofs + 8)]
+    return [element for element in a if element not in bad_ofs]
+
+def week_map1():
     if math.floor(datetime.now().day / 7) == 0:
         return [1, 2, 3, 4, 5, 6]
     elif math.floor(datetime.now().day / 7) == 1:
