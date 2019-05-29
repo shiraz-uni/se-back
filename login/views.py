@@ -307,7 +307,7 @@ def get_week_coupons(day, std):
             coupon["price1"] = lst[i].food.price1
             coupon["price2"] = lst[i].food.price2
             coupon["self_name"] = lst[i].self_id.self_name
-            data[(saturday + timedelta(days=i)).strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
+            data[lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
             coupon = {}
     except:
         pass
