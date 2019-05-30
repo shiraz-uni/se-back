@@ -159,28 +159,29 @@ def week_data(request):
         return HttpResponse('invalid request')
 
 
-# def get_saterday():
-#     if datetime.now().weekday() is 5:
-#         return datetime.now()
-#     elif datetime.now().weekday() is 6:
-#         return datetime.now() - timedelta(days=1)
-#     elif datetime.now().weekday() is 0:
-#         return datetime.now() - timedelta(days=2)
-#     elif datetime.now().weekday() is 1:
-#         return datetime.now() - timedelta(days=3)
-#     elif datetime.now().weekday() is 2:
-#         return datetime.now() - timedelta(days=4)
-#     elif datetime.now().weekday() is 3:
-#         return datetime.now() - timedelta(days=5)
-#     elif datetime.now().weekday() is 4:
-#         return datetime.now() - timedelta(days=6)
+def get_saturday(date):
+    if date.weekday() is 5:
+        return date
+    elif date.weekday() is 6:
+        return date - timedelta(days=1)
+    elif date.weekday() is 0:
+        return date - timedelta(days=2)
+    elif date.weekday() is 1:
+        return date - timedelta(days=3)
+    elif date.weekday() is 2:
+        return date - timedelta(days=4)
+    elif date.weekday() is 3:
+        return date - timedelta(days=5)
+    elif date.weekday() is 4:
+        return date - timedelta(days=6)
 
 
 def week_map():
     ofs = datetime.now().day - datetime.now().weekday() - 1
     bad_ofs = [32, 33, 34, 35, 36, 37, 38]
-    a =  [_ for _ in range(ofs, ofs + 8)]
+    a = [_ for _ in range(ofs, ofs + 8)]
     return [element for element in a if element not in bad_ofs]
+
 
 def week_map1():
     if math.floor(datetime.now().day / 7) == 0:
@@ -199,83 +200,118 @@ def get_week_data():
 
     for _ in week_map():
         try:
-            sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price1
-            sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].price2
-            sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
-            sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="breakfast")[0].food_name1
+            sf_data["price1"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].price1
+            sf_data["price2"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].price2
+            sf_data["food_name1"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].food_name1
+            sf_data["food_name2"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].food_name2
             s_d[str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
             sf_data = {}
         except:
             pass
     for _ in week_map():
         try:
-            sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price1
-            sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].price2
-            sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
-            sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="lunch")[0].food_name1
+            sf_data["price1"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
+                    0].price1
+            sf_data["price2"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
+                    0].price2
+            sf_data["food_name1"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
+                    0].food_name1
+            sf_data["food_name2"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
+                    0].food_name2
             s_d[str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
             sf_data = {}
         except:
             pass
     for _ in week_map():
         try:
-            sf_data["price1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price1
-            sf_data["price2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].price2
-            sf_data["food_name1"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
-            sf_data["food_name2"] = FoodMenuN.objects.all().filter(date__month = datetime.now().month, date__day = _, meal_type="dinner")[0].food_name1
+            sf_data["price1"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
+                    0].price1
+            sf_data["price2"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
+                    0].price2
+            sf_data["food_name1"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
+                    0].food_name1
+            sf_data["food_name2"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
+                    0].food_name2
             s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
             sf_data = {}
         except:
             pass
     return s_d
 
+
 # def get_week_data(data, day):
-#     saterday = get_saterday(day)
+#     saturday = get_saturday(day)
 #     sf_data = {}
 #     for _ in range(7):
-#         sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["price1"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                            meal_type="breakfast").price1
-#         sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["price2"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                            meal_type="breakfast").price2
-#         sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                                meal_type="breakfast").food_name1
-#         sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                                meal_type="breakfast").food_name1
-#         sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                            meal_type="breakfast").credit
-#         data[saterday + timedelta(days=_).strftime('%Y/%m/%d') + "/breakfast"] = sf_data
+#         data[saturday + timedelta(days=_).strftime('%Y/%m/%d') + "/breakfast"] = sf_data
 #     for _ in range(7):
-#         sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="dinner").price1
-#         sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="dinner").price2
-#         sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["price1"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_), meal_type="dinner").price1
+#         sf_data["price2"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_), meal_type="dinner").price2
+#         sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                                meal_type="dinner").food_name1
-#         sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                                meal_type="dinner").food_name1
-#         sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="dinner").credit
-#         data[saterday + timedelta(days=_).strftime('%Y/%m/%d') + "/breakfast"] = sf_data
+#         sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_), meal_type="dinner").credit
+#         data[saturday + timedelta(days=_).strftime('%Y/%m/%d') + "/breakfast"] = sf_data
 #     for _ in range(7):
-#         sf_data["price1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="lunch").price1
-#         sf_data["price2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="lunch").price2
-#         sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["price1"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_), meal_type="lunch").price1
+#         sf_data["price2"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_), meal_type="lunch").price2
+#         sf_data["food_name1"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                                meal_type="lunch").food_name1
-#         sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_),
+#         sf_data["food_name2"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_),
 #                                                                meal_type="lunch").food_name1
-#         sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saterday + timedelta(days=_), meal_type="lunch").credit
-#         data[saterday + timedelta(days=_).strftime('%Y/%m/%d') + "/breakfast"] = sf_data
+#         sf_data["key_id"] = FoodMenuN.objects.all().filter(data=saturday + timedelta(days=_), meal_type="lunch").credit
+#         data[(saturday + timedelta(days=_)).strftime('%Y/%m/%d') + "/breakfast"] = sf_data
 
 
-# def get_week_coupons(data, day, std):
-#     saterday = get_saterday(day)
-#     coupon = {}
-#     lst = list(CouponN.objects.filter(student=std).filter(food__date__gte=saterday,
-#                                                           food__date__lte=saterday + timedelta(days=6)))
-#     i = 0
-#     while i < len(lst):
-#         coupon["state"] = lst[i].state
-#         coupon["coupon_id"] = lst[i].coupon_id
-#         coupon["food"] = lst[i].food.key_id  # Todo send food_name + ...
-#         coupon["self_id"] = lst[i].self_id
-#         data["food"] = coupon
+def get_week_coupons(day, std):
+    saturday = get_saturday(day)
+    data = {}
+    try:
+        lst = list(CouponN.objects.filter(
+            food__date__gt=datetime.date(saturday.year, saturday.month, saturday.day), student=std))
+        i = 0
+        coupon = {}
+        while i < len(lst):
+            coupon["state"] = lst[i].state
+            coupon["coupon_id"] = lst[i].coupon_id
+            coupon["food_id"] = lst[i].food.key_id
+            coupon["food_name1"] = lst[i].food.food_name1
+            coupon["food_name2"] = lst[i].food.food_name2
+            coupon["price1"] = lst[i].food.price1
+            coupon["price2"] = lst[i].food.price2
+            coupon["self_name"] = lst[i].self_id.self_name
+            data[lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
+            coupon = {}
+    except:
+        pass
+    return data
 
 
 # @csrf_exempt
@@ -300,6 +336,17 @@ def get_week_data():
 #     else:
 #         return HttpResponse('invalid request')
 
+
+def get_student(sto):
+    std = {}
+    std["first_name"] = sto.first_name
+    std["last_name"] = sto.last_name
+    std["student_no"] = sto.student_no
+    std["student_type"] = sto.std_type
+    std["credit"] = sto.credit
+    return std
+
+
 @csrf_exempt
 def self_data(request):
     '''remove the token and the username for the database'''
@@ -309,8 +356,14 @@ def self_data(request):
         req = request.read()
         j = json.loads(req)
         token = j['token']
+        st = cred.objects.get(token=token)
+        temp_user_id = st.username
+        std = StudentN.objects.get(student_no=temp_user_id)
+        data = {}
         if token_check(token):
-            data = get_week_data()
+            data["self_data"] = get_week_data()
+            data["student"] = get_student(std)
+            data["coupons"] = get_week_coupons(datetime.now(), std)
 
             return JsonResponse(data)
         else:
