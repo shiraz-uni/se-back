@@ -104,59 +104,59 @@ def test(request):
     return JsonResponse({'token': 'some123random123token'})
 
 
-@csrf_exempt
-def week_data(request):
-    '''remove the token and the username for the database'''
-    if request.method == 'GET':
-        return HttpResponse('Post')
-    elif request.method == 'POST':
-        req = request.read()
-        j = json.loads(req)
-        token = j['token']
-        if token_check(token):
-            st = cred.objects.get(token=token)
-            temp_user_id = st.username
-            data = {}
-            st_id = {}
-            sto = StudentN.objects.get(student_no=temp_user_id)
-            st_id["first_name"] = sto.first_name
-            st_id["last_name"] = sto.last_name
-            st_id["student_no"] = sto.student_no
-            st_id["student_type"] = sto.std_type
-            st_id["credit"] = sto.credit
-            data["student_id"] = st_id
-            self_list = {}
-            sl = SelfListN.objects.all()
-            for _ in sl:
-                self_list[_.self_id] = _.self_name
-
-            # data["self_list"] = self_list
-            transactions_dict = {}
-
-            te = TransactionN.objects.get(student=temp_user_id)
-            # for _ in te:
-            #	transactions_dict[str(_.date)] = {_.bank : str(_.price)}
-            transactions_dict[str(te.date)] = {te.bank: str(te.price)}
-            data["transactions"] = transactions_dict
-
-            coupons_dict = {}
-
-            cq = CouponN.objects.get(student=temp_user_id)
-            # for _ in cq:
-            #	coupons_dict["is_active"] = str(_.state)
-            #	coupons_dict["food"] = FoodMenuN.objects.get(Key_id = _.food).food_name1
-            #	coupons_dict["self"] = SelfListN.objects.get(self_id = _.self_id).self_name
-
-            coupons_dict["is_active"] = str(cq.state)
-            # coupons_dict["self"] = SelfListN.objects.get(self_id = cq.self_id).self_name
-
-            data["coupons"] = coupons_dict
-
-            return JsonResponse(data)
-        else:
-            return HttpResponse('You are not lgged in')
-    else:
-        return HttpResponse('invalid request')
+# @csrf_exempt
+# def week_data(request):
+#     '''remove the token and the username for the database'''
+#     if request.method == 'GET':
+#         return HttpResponse('Post')
+#     elif request.method == 'POST':
+#         req = request.read()
+#         j = json.loads(req)
+#         token = j['token']
+#         if token_check(token):
+#             st = cred.objects.get(token=token)
+#             temp_user_id = st.username
+#             data = {}
+#             st_id = {}
+#             sto = StudentN.objects.get(student_no=temp_user_id)
+#             st_id["first_name"] = sto.first_name
+#             st_id["last_name"] = sto.last_name
+#             st_id["student_no"] = sto.student_no
+#             st_id["student_type"] = sto.std_type
+#             st_id["credit"] = sto.credit
+#             data["student_id"] = st_id
+#             self_list = {}
+#             sl = SelfListN.objects.all()
+#             for _ in sl:
+#                 self_list[_.self_id] = _.self_name
+#
+#             # data["self_list"] = self_list
+#             transactions_dict = {}
+#
+#             te = TransactionN.objects.get(student=temp_user_id)
+#             # for _ in te:
+#             #	transactions_dict[str(_.date)] = {_.bank : str(_.price)}
+#             transactions_dict[str(te.date)] = {te.bank: str(te.price)}
+#             data["transactions"] = transactions_dict
+#
+#             coupons_dict = {}
+#
+#             cq = CouponN.objects.get(student=temp_user_id)
+#             # for _ in cq:
+#             #	coupons_dict["is_active"] = str(_.state)
+#             #	coupons_dict["food"] = FoodMenuN.objects.get(Key_id = _.food).food_name1
+#             #	coupons_dict["self"] = SelfListN.objects.get(self_id = _.self_id).self_name
+#
+#             coupons_dict["is_active"] = str(cq.state)
+#             # coupons_dict["self"] = SelfListN.objects.get(self_id = cq.self_id).self_name
+#
+#             data["coupons"] = coupons_dict
+#
+#             return JsonResponse(data)
+#         else:
+#             return HttpResponse('You are not lgged in')
+#     else:
+#         return HttpResponse('invalid request')
 
 
 def get_saturday(date):
