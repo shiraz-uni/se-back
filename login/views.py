@@ -318,6 +318,7 @@ def get_week_coupons(day, std):
             coupon["self_name"] = lst[i].self_id.self_name
             data[lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
             coupon = {}
+            i+=1
     except:
         pass
     return data
