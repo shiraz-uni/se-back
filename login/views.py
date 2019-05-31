@@ -303,8 +303,8 @@ def get_week_coupons(day, std):
     saturday = get_saturday(day)
     data = {}
     try:
-        lst = list(CouponN.objects.filter(
-            food__date__gt=datetime.date(saturday.year, saturday.month, saturday.day), student=std))
+        lst = CouponN.objects.filter(
+            food__date__gt=datetime.date(saturday.year, saturday.month, saturday.day), student=std)
         i = 0
         coupon = {}
         while i < len(lst):
