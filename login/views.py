@@ -212,6 +212,9 @@ def get_week_data():
             sf_data["food_name2"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
                     0].food_name2
+            sf_data["key_id"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].key_id
             s_d[str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
             sf_data = {}
         except:
@@ -230,6 +233,9 @@ def get_week_data():
             sf_data["food_name2"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
                     0].food_name2
+            sf_data["key_id"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].key_id
             s_d[str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
             sf_data = {}
         except:
@@ -248,6 +254,9 @@ def get_week_data():
             sf_data["food_name2"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
                     0].food_name2
+            sf_data["key_id"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].key_id
             s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
             sf_data = {}
         except:
