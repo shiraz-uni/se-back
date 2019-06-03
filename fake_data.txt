@@ -3,6 +3,6 @@ FoodMenuN(key_id='1001', price1=1500, price2=1350, food_name1='خوراک امل
 FoodMenuN(key_id='1000', price1=1500, price2=1350, food_name1='املت', food_name2='نون پنیر', date=datetime.datetime.now(), meal_type='breakfast')
 
 
-StudentN(first_name='حمید', last_name='حسنی', student_no="10001", std_type='خوابگاهی', credit=5000, password='123')
+StudentN(first_name='وحید', last_name='ترابی', student_no="9532290", std_type='غیر خوابگاهی', credit=5000, password='123123')
 StudentN(first_name='علی', last_name='علیزاده', student_no="10002", std_type='خوابگاهی', credit=0, password='123')
 StudentN(first_name='محمد', last_name='محمدی', student_no="10001", std_type='غیر خوابگاهی', credit=15000, password='123')
