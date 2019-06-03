@@ -307,17 +307,17 @@ def get_week_coupons(day, std):
         i = 0
         coupon = {}
         while i < len(lst):
-            if lst[i].food.date >= saturday:
-                coupon["state"] = lst[i].state
-                coupon["coupon_id"] = lst[i].coupon_id
-                coupon["food_id"] = lst[i].food.key_id
-                coupon["food_name1"] = lst[i].food.food_name1
-                coupon["food_name2"] = lst[i].food.food_name2
-                coupon["price1"] = lst[i].food.price1
-                coupon["price2"] = lst[i].food.price2
-                coupon["self_name"] = lst[i].self_id.self_name
-                data[lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
-                coupon = {}
+            # if lst[i].food.date >= saturday:
+            coupon["state"] = lst[i].state
+            coupon["coupon_id"] = lst[i].coupon_id
+            coupon["food_id"] = lst[i].food.key_id
+            coupon["food_name1"] = lst[i].food.food_name1
+            coupon["food_name2"] = lst[i].food.food_name2
+            coupon["price1"] = lst[i].food.price1
+            coupon["price2"] = lst[i].food.price2
+            coupon["self_name"] = lst[i].self_id.self_name
+            data[lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
+            coupon = {}
             i += 1
     except:
         pass
