@@ -307,7 +307,7 @@ def get_week_coupons(day, std):
         i = 0
         coupon = {}
         while i < len(lst):
-            if lst[i].food.date > saturday:
+            if lst[i].food.date >= saturday:
                 coupon["state"] = lst[i].state
                 coupon["coupon_id"] = lst[i].coupon_id
                 coupon["food_id"] = lst[i].food.key_id
