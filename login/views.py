@@ -9,6 +9,11 @@ from datetime import datetime
 from datetime import timedelta
 import math
 
+def credit_change(change, id):
+    student = StudentN.objects.get(student_no = id)
+    student.credit = studnet.credit + change
+    student.save()
+
 
 def cridentials_test(user, password):
     c = StudentN.objects.get(student_no=user)
