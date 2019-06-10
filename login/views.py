@@ -9,9 +9,10 @@ from datetime import datetime
 from datetime import timedelta
 import math
 
+
 def credit_change(change, id):
-    student = StudentN.objects.get(student_no = id)
-    student.credit = studnet.credit + change
+    student = StudentN.objects.get(student_no=id)
+    student.credit = student.credit + change
     student.save()
 
 
@@ -217,6 +218,9 @@ def get_week_data():
             sf_data["food_name2"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
                     0].food_name2
+            sf_data["key_id"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
+                    0].key_id
             s_d[str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
             sf_data = {}
         except:
@@ -235,6 +239,9 @@ def get_week_data():
             sf_data["food_name2"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
                     0].food_name2
+            sf_data["key_id"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
+                    0].key_id
             s_d[str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
             sf_data = {}
         except:
@@ -253,6 +260,9 @@ def get_week_data():
             sf_data["food_name2"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
                     0].food_name2
+            sf_data["key_id"] = \
+                FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
+                    0].key_id
             s_d[str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
             sf_data = {}
         except:
@@ -299,11 +309,11 @@ def get_week_coupons(day, std):
     saturday = get_saturday(day)
     data = {}
     try:
-        lst = list(CouponN.objects.filter(
-            food__date__gt=datetime.date(saturday.year, saturday.month, saturday.day), student=std))
+        lst = CouponN.objects.filter(student=std)
         i = 0
         coupon = {}
         while i < len(lst):
+            # if lst[i].food.date >= saturday:
             coupon["state"] = lst[i].state
             coupon["coupon_id"] = lst[i].coupon_id
             coupon["food_id"] = lst[i].food.key_id
@@ -314,9 +324,19 @@ def get_week_coupons(day, std):
             coupon["self_name"] = lst[i].self_id.self_name
             data[lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
             coupon = {}
+            i += 1
     except:
         pass
     return data
+
+
+def delete_coupon(coupon_id):
+    coupon = CouponN.objects.get(coupon_id=coupon_id)
+    if coupon.state:
+        credit_change(coupon.price1, coupon.student)
+    else:
+        credit_change(coupon.price2, coupon.student)
+    coupon.delete()
 
 
 # @csrf_exempt
