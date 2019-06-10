@@ -9,9 +9,10 @@ from datetime import datetime
 from datetime import timedelta
 import math
 
+
 def credit_change(change, id):
-    student = StudentN.objects.get(student_no = id)
-    student.credit = studnet.credit + change
+    student = StudentN.objects.get(student_no=id)
+    student.credit = student.credit + change
     student.save()
 
 
@@ -327,6 +328,15 @@ def get_week_coupons(day, std):
     except:
         pass
     return data
+
+
+def delete_coupon(coupon_id):
+    coupon = CouponN.objects.get(coupon_id=coupon_id)
+    if coupon.state:
+        credit_change(coupon.price1, coupon.student)
+    else:
+        credit_change(coupon.price2, coupon.student)
+    coupon.delete()
 
 
 # @csrf_exempt
