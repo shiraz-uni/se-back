@@ -9,6 +9,24 @@ from datetime import datetime
 from datetime import timedelta
 import math
 
+def compare_date(date_str, dt):
+    """1 for first bigger, 0 for equal and -1 for less"""
+    parsed = date_str.split('-')
+    db_year = parsed[0]
+    db_month = parsed[1]
+    db_day = parsed[2]
+    if db_year >= dt.year:
+        if db_month >= dt.month:
+            if db_day >= dt.day:
+                return 1
+            elif db_day == dt.day:
+                return 0
+            else:
+                return -1
+        else:
+            return -1
+    else:
+        return -1
 
 def credit_change(change, id):
     try:
