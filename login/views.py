@@ -261,7 +261,7 @@ def get_week_data():
             sf_data["key_id"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="breakfast")[
                     0].key_id
-            s_d['2019/'+str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
+            s_d['2019/' + str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
             sf_data = {}
         except:
             pass
@@ -282,7 +282,7 @@ def get_week_data():
             sf_data["key_id"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="lunch")[
                     0].key_id
-            s_d['2019/'+str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
+            s_d['2019/' + str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
             sf_data = {}
         except:
             pass
@@ -303,7 +303,7 @@ def get_week_data():
             sf_data["key_id"] = \
                 FoodMenuN.objects.all().filter(date__month=datetime.now().month, date__day=_, meal_type="dinner")[
                     0].key_id
-            s_d['2019/'+str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
+            s_d['2019/' + str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
             sf_data = {}
         except:
             pass
@@ -363,7 +363,7 @@ def get_week_coupons(day, std):
                 coupon["price1"] = lst[i].food.price1
                 coupon["price2"] = lst[i].food.price2
                 coupon["self_name"] = lst[i].self_id.self_name
-                data['2019/'+lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
+                data['2019/' + lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
                 coupon = {}
             i += 1
     except:
@@ -442,9 +442,9 @@ def self_data(request):
 
                 return JsonResponse(data)
             else:
-                return HttpResponse('You are not lgged in')
+                return HttpResponse('You are not logged in')
         except:
-            return HttpResponse('You are not lgged in')
+            return HttpResponse('You are not logged in')
     else:
         return HttpResponse('invalid request')
 
@@ -472,8 +472,48 @@ def delete(request):
                 else:
                     return JsonResponse(data)
             else:
-                return HttpResponse('You are not lgged in')
+                return HttpResponse('You are not logged in')
         except:
-            return HttpResponse('You are not lgged in')
+            return HttpResponse('You are not logged in')
+    else:
+        return HttpResponse('invalid request')
+
+
+@csrf_exempt
+def purchase(request):
+    if request.method == 'GET':
+        return HttpResponse('Post')
+    elif request.method == 'POST':
+        req = request.read()
+        j = json.loads(req)
+        token = j['token']
+        food_id = j['food_id']
+        state = j['state']
+        self = j['self']
+        try:
+            st = cred.objects.get(token=token)
+            temp_user_id = st.username
+            std = StudentN.objects.get(student_no=temp_user_id)
+            try:
+                food = FoodMenuN.objects.get(key_id=food_id)
+
+            except:
+                temp_dd = {}
+                temp_dd['status'] = "No Food"
+                return JsonResponse(temp_dd)
+
+            coupon_id = secrets.token_hex(8)
+            data = {}
+            if token_check(token):
+                data["status"] = "purchased"
+                CouponN(coupon_id=coupon_id, state=state, food=food, student=std, self_id=self).save()
+                if int(state):
+                    credit_change(-food.price1, std)
+                else:
+                    credit_change(-food.price2, std)
+            else:
+                return HttpResponse('You are not logged in')
+        except:
+            return HttpResponse('You are not logged in')
     else:
         return HttpResponse('invalid request')
