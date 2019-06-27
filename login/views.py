@@ -374,7 +374,7 @@ def get_week_coupons(day, std):
 def delete_coupon(coupon_id, std):
     try:
         coupon = CouponN.objects.get(coupon_id=coupon_id)
-        if coupon.student.studentNo == std.studentNo:
+        if coupon.student.student_no == std.student_no:
             if coupon.state:
                 credit_change(coupon.price1, coupon.student)
             else:
