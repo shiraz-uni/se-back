@@ -22,7 +22,8 @@ def credit_change(change, id):
 def cridentials_test(user, password):
     try:
         c = StudentN.objects.get(student_no=user)
-        if c is not None and c.password == password:
+        cc = cred.objects.get(username=user)
+        if c is not None and c.password == password and cc is None:
             return True
     except:
         return False
