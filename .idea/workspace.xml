@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix bugs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/urls.py" afterDir="false" />
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="delete request">
       <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="374" column="53" selection-start-line="374" selection-start-column="53" selection-end-line="374" selection-end-column="53" />
+            <state relative-caret-position="1012">
+              <caret line="305" column="20" selection-start-line="305" selection-start-column="20" selection-end-line="305" selection-end-column="20" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -315,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561641224103</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="delete request">
+      <created>1561643409007</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1561643409007</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -331,7 +336,7 @@
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.15925059" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.15925059" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32844037" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32850242" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32844037" />
@@ -411,7 +416,8 @@
     <MESSAGE value="fix week coupons" />
     <MESSAGE value="fix compare_date" />
     <MESSAGE value="fix bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
+    <MESSAGE value="delete request" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete request" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -820,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="374" column="53" selection-start-line="374" selection-start-column="53" selection-end-line="374" selection-end-column="53" />
+        <state relative-caret-position="1012">
+          <caret line="305" column="20" selection-start-line="305" selection-start-column="20" selection-end-line="305" selection-end-column="20" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
