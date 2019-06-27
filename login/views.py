@@ -12,9 +12,9 @@ import math
 def compare_date(date_str, dt):
     """1 if first is bigger, 0 for equal and -1 for less"""
     parsed = date_str.split('-')
-    db_year = parsed[0]
-    db_month = parsed[1]
-    db_day = parsed[2]
+    db_year = int(parsed[0])
+    db_month = int(parsed[1])
+    db_day = int(parsed[2])
     # return datetime(year=db_year, month=db_month, day= db_day)
     if db_year >= dt.year:
         if db_month >= dt.month:
