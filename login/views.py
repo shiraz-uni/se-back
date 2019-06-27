@@ -20,13 +20,22 @@ def credit_change(change, id):
 
 
 def cridentials_test(user, password):
+    c = None
+    cc = None
     try:
         c = StudentN.objects.get(student_no=user)
-        cc = cred.objects.get(username=user)
-        if c is not None and c.password == password and cc is None:
-            return True
     except:
         return False
+    try:
+        cc = cred.objects.get(username=user)
+    except:
+        cc = None
+        temp = 1
+    finally:
+        if c is not None and c.password == password and cc is None:
+            return True
+        else:
+            return False
 
 
 def token_check(token):
