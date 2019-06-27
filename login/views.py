@@ -11,22 +11,31 @@ import math
 
 
 def credit_change(change, id):
-    student = StudentN.objects.get(student_no=id)
-    student.credit = student.credit + change
-    student.save()
+    try:
+        student = StudentN.objects.get(student_no=id)
+        student.credit = student.credit + change
+        student.save()
+    except:
+        return
 
 
 def cridentials_test(user, password):
-    c = StudentN.objects.get(student_no=user)
-    if c is not None and c.password == password:
-        return True
+    try:
+        c = StudentN.objects.get(student_no=user)
+        if c is not None and c.password == password:
+            return True
+    except:
+        return False
 
 
 def token_check(token):
-    st = cred.objects.get(token=token)
-    if st is not None:
-        return True
-    else:
+    try:
+        st = cred.objects.get(token=token)
+        if st is not None:
+            return True
+        else:
+            return False
+    except:
         return False
 
 
