@@ -373,17 +373,19 @@ def get_week_coupons(day, std):
 
 def delete_coupon(coupon_id, std):
     try:
+        clist = []
         coupon = CouponN.objects.get(coupon_id=coupon_id)
-        if coupon.student.student_no == std.student_no:
-            if coupon.state:
-                credit_change(coupon.price1, coupon.student)
+        clist.append(coupon)
+        if int(clist[0].student.student_no) == int(std.student_no):
+            if int(coupon.state):
+                credit_change(coupon.food.price1, coupon.student)
             else:
-                credit_change(coupon.price2, coupon.student)
+                credit_change(coupon.food.price2, coupon.student)
             coupon.delete()
         else:
-            return -1
-    except:
-        return -1
+            return -2
+    except Exception as e:
+        return ('Failed to upload to ftp: ' + str(e))
 
 
 # @csrf_exempt
@@ -467,11 +469,8 @@ def delete(request):
                     temp_d = {}
                     temp_d['status'] = "Wrong Credential"
                     return JsonResponse(temp_d)
-
                 else:
                     return JsonResponse(data)
-
-                return JsonResponse(data)
             else:
                 return HttpResponse('You are not lgged in')
         except:
