@@ -9,6 +9,7 @@ from datetime import datetime
 from datetime import timedelta
 import math
 
+
 def compare_date(d, dt):
     """1 if first is bigger, 0 for equal and -1 for less"""
     # parsed = date_str.split('-')
@@ -28,6 +29,7 @@ def compare_date(d, dt):
             return -1
     else:
         return -1
+
 
 def credit_change(change, id):
     try:
@@ -352,7 +354,7 @@ def get_week_coupons(day, std):
         coupon = {}
         while i < len(lst):
 
-            if compare_date(lst[i].food.date,saturday) >= 0:
+            if compare_date(lst[i].food.date, saturday) >= 0:
                 coupon["state"] = lst[i].state
                 coupon["coupon_id"] = lst[i].coupon_id
                 coupon["food_id"] = lst[i].food.key_id
@@ -369,13 +371,19 @@ def get_week_coupons(day, std):
     return data
 
 
-def delete_coupon(coupon_id):
-    coupon = CouponN.objects.get(coupon_id=coupon_id)
-    if coupon.state:
-        credit_change(coupon.price1, coupon.student)
-    else:
-        credit_change(coupon.price2, coupon.student)
-    coupon.delete()
+def delete_coupon(coupon_id, std):
+    try:
+        coupon = CouponN.objects.get(coupon_id=coupon_id)
+        if coupon.student.studentNo == std.studentNo:
+            if coupon.state:
+                credit_change(coupon.price1, coupon.student)
+            else:
+                credit_change(coupon.price2, coupon.student)
+            coupon.delete()
+        else:
+            return -1
+    except:
+        return -1
 
 
 # @csrf_exempt
@@ -420,17 +428,53 @@ def self_data(request):
         req = request.read()
         j = json.loads(req)
         token = j['token']
-        st = cred.objects.get(token=token)
-        temp_user_id = st.username
-        std = StudentN.objects.get(student_no=temp_user_id)
-        data = {}
-        if token_check(token):
-            data["self_data"] = get_week_data()
-            data["student"] = get_student(std)
-            data["coupons"] = get_week_coupons(datetime.now(), std)
+        try:
+            st = cred.objects.get(token=token)
+            temp_user_id = st.username
+            std = StudentN.objects.get(student_no=temp_user_id)
+            data = {}
+            if token_check(token):
+                data["self_data"] = get_week_data()
+                data["student"] = get_student(std)
+                data["coupons"] = get_week_coupons(datetime.now(), std)
 
-            return JsonResponse(data)
-        else:
+                return JsonResponse(data)
+            else:
+                return HttpResponse('You are not lgged in')
+        except:
+            return HttpResponse('You are not lgged in')
+    else:
+        return HttpResponse('invalid request')
+
+
+@csrf_exempt
+def delete(request):
+    if request.method == 'GET':
+        return HttpResponse('Post')
+    elif request.method == 'POST':
+        req = request.read()
+        j = json.loads(req)
+        token = j['token']
+        coupon = j['coupon_id']
+        try:
+            st = cred.objects.get(token=token)
+            temp_user_id = st.username
+            std = StudentN.objects.get(student_no=temp_user_id)
+            data = {}
+            if token_check(token):
+                data["status"] = "deleted"
+                if delete_coupon(coupon, std) == -1:
+                    temp_d = {}
+                    temp_d['status'] = "Wrong Credential"
+                    return JsonResponse(temp_d)
+
+                else:
+                    return JsonResponse(data)
+
+                return JsonResponse(data)
+            else:
+                return HttpResponse('You are not lgged in')
+        except:
             return HttpResponse('You are not lgged in')
     else:
         return HttpResponse('invalid request')
