@@ -10,24 +10,24 @@ from datetime import timedelta
 import math
 
 def compare_date(date_str, dt):
-    """1 for first bigger, 0 for equal and -1 for less"""
+    """1 if first is bigger, 0 for equal and -1 for less"""
     parsed = date_str.split('-')
     db_year = parsed[0]
     db_month = parsed[1]
     db_day = parsed[2]
-    return datetime(year=db_year, month=db_month, day= db_day)
-    # if db_year >= dt.year:
-    #     if db_month >= dt.month:
-    #         if db_day >= dt.day:
-    #             return 1
-    #         elif db_day == dt.day:
-    #             return 0
-    #         else:
-    #             return -1
-    #     else:
-    #         return -1
-    # else:
-    #     return -1
+    # return datetime(year=db_year, month=db_month, day= db_day)
+    if db_year >= dt.year:
+        if db_month >= dt.month:
+            if db_day >= dt.day:
+                return 1
+            elif db_day == dt.day:
+                return 0
+            else:
+                return -1
+        else:
+            return -1
+    else:
+        return -1
 
 def credit_change(change, id):
     try:
@@ -352,7 +352,7 @@ def get_week_coupons(day, std):
         coupon = {}
         while i < len(lst):
 
-            if compare_date(lst[i].food.date) >= saturday:
+            if compare_date(lst[i].food.date,saturday) >= 0:
                 coupon["state"] = lst[i].state
                 coupon["coupon_id"] = lst[i].coupon_id
                 coupon["food_id"] = lst[i].food.key_id
