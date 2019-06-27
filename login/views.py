@@ -9,18 +9,18 @@ from datetime import datetime
 from datetime import timedelta
 import math
 
-def compare_date(date_str, dt):
+def compare_date(d, dt):
     """1 if first is bigger, 0 for equal and -1 for less"""
-    parsed = date_str.split('-')
-    db_year = int(parsed[0])
-    db_month = int(parsed[1])
-    db_day = int(parsed[2])
+    # parsed = date_str.split('-')
+    # db_year = int(parsed[0])
+    # db_month = int(parsed[1])
+    # db_day = int(parsed[2])
     # return datetime(year=db_year, month=db_month, day= db_day)
-    if db_year >= dt.year:
-        if db_month >= dt.month:
-            if db_day >= dt.day:
+    if d.year >= dt.year:
+        if d.month >= dt.month:
+            if d.day >= dt.day:
                 return 1
-            elif db_day == dt.day:
+            elif d.day == dt.day:
                 return 0
             else:
                 return -1

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix week coupons">
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix compare_date">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6781">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="29" selection-end-column="17" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -278,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1561638561046</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix week coupons">
+      <created>1561639793026</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1561639793026</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix compare_date">
+      <created>1561640707585</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561640707585</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -292,7 +305,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.15925059" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32844037" />
@@ -301,7 +313,7 @@
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.14505672" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.46023688" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.46023688" />
       <window_info id="Favorites" order="2" sideWeight="0.50080514" side_tool="true" weight="0.18314424" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -372,7 +384,33 @@
     <MESSAGE value="fix coupons date" />
     <MESSAGE value="added make data" />
     <MESSAGE value="fix week coupons" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix week coupons" />
+    <MESSAGE value="fix compare_date" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix compare_date" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointLogExpression">
+      <expression>
+        <expression-string>if db_year &gt;= dt.year:
+        if db_month &gt;= dt.month:
+            if db_day &gt;= dt.day:
+                return 1
+            elif db_day == dt.day:
+                return 0
+            else:
+                return -1
+        else:
+            return -1
+    else:
+        return -1</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/login/urls.py">
@@ -760,8 +798,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6781">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="29" selection-end-column="17" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
