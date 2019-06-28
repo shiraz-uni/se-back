@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="purchase debugging" />
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix syntax">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/make_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/make_data.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="511" column="44" lean-forward="true" selection-start-line="511" selection-start-column="32" selection-end-line="511" selection-end-column="44" />
+            <state relative-caret-position="121">
+              <caret line="511" column="44" selection-start-line="511" selection-start-column="24" selection-end-line="511" selection-end-column="44" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -26,13 +29,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="make_data.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="make_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/make_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="595">
+              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="14" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,9 +121,9 @@
       <list>
         <option value="$PROJECT_DIR$/login/models.py" />
         <option value="$PROJECT_DIR$/fake_data.txt" />
-        <option value="$PROJECT_DIR$/login/make_data.py" />
         <option value="$PROJECT_DIR$/login/urls.py" />
         <option value="$PROJECT_DIR$/login/views.py" />
+        <option value="$PROJECT_DIR$/login/make_data.py" />
       </list>
     </option>
   </component>
@@ -399,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561709447245</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix syntax">
+      <created>1561719173400</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1561719173400</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -413,15 +423,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.15925059" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.15925059" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32844037" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32850242" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32844037" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.14505672" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2571912" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2571912" />
       <window_info id="Favorites" order="2" sideWeight="0.50080514" side_tool="true" weight="0.18314424" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -503,7 +514,8 @@
     <MESSAGE value="revert test changes" />
     <MESSAGE value="added purchase functionality and response" />
     <MESSAGE value="purchase debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="purchase debugging" />
+    <MESSAGE value="fix syntax" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix syntax" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -536,7 +548,7 @@
         <state relative-caret-position="-238">
           <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -875,16 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/make_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/self_server/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -922,10 +924,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="511" column="44" lean-forward="true" selection-start-line="511" selection-start-column="32" selection-end-line="511" selection-end-column="44" />
+        <state relative-caret-position="121">
+          <caret line="511" column="44" selection-start-line="511" selection-start-column="24" selection-end-line="511" selection-end-column="44" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/make_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>

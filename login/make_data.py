@@ -1,3 +1,5 @@
+from secrets import token_hex
+
 from .models import *
 import random
 import datetime
@@ -25,8 +27,8 @@ class MakeData:
 
         for _ in range(6):
             self.student_list.append(StudentN(first_name=studentFName[_], last_name=studentLName[_],
-                                             student_no="1000" + str(_), std_type=stdType[_ % 2], credit=stdCredit[_],
-                                             password='123'))
+                                              student_no="100" + str(_), std_type=stdType[_ % 2], credit=stdCredit[_],
+                                              password='123'))
 
     self_list = ['غذاخوري ارم', 'غذاخوري دانشكده مهندسي نفت و گاز', 'رستوران کوهپايه', 'رستوران بيرون برآسمان']
 
@@ -52,16 +54,16 @@ class MakeData:
                 d = random.randint(0, 3)
 
             self.food_list.append(
-                FoodMenuN(key_id='10'+str(_), price1=price[random.randint(0, 2)], price2=price[random.randint(0, 2)],
-                         food_name1=foodName1[a], food_name2=foodName1[b],
-                         date=datetime.datetime.now() + datetime.timedelta(days=_), meal_type='lunch'))
+                FoodMenuN(key_id=token_hex(8), price1=price[random.randint(0, 2)], price2=price[random.randint(0, 2)],
+                          food_name1=foodName1[a], food_name2=foodName1[b],
+                          date=datetime.datetime.now() + datetime.timedelta(days=_), meal_type='lunch'))
 
             self.food_list.append(
-                FoodMenuN(key_id='200' + str(_), price1=price[random.randint(0, 2)], price2=price[random.randint(0, 2)],
-                         food_name1=foodName2[a], food_name2=foodName2[b],
-                         date=datetime.datetime.now() + datetime.timedelta(days=_), meal_type='dinner'))
+                FoodMenuN(key_id=token_hex(8), price1=price[random.randint(0, 2)], price2=price[random.randint(0, 2)],
+                          food_name1=foodName2[a], food_name2=foodName2[b],
+                          date=datetime.datetime.now() + datetime.timedelta(days=_), meal_type='dinner'))
 
             self.food_list.append(
-                FoodMenuN(key_id='3000' + str(_), price1=price[random.randint(0, 2)], price2=price[random.randint(0, 2)],
-                         food_name1=foodName3[c], food_name2=foodName3[d],
-                         date=datetime.datetime.now() + datetime.timedelta(days=_), meal_type='breakfast'))
+                FoodMenuN(key_id=token_hex(8), price1=price[random.randint(0, 2)], price2=price[random.randint(0, 2)],
+                          food_name1=foodName3[c], food_name2=foodName3[d],
+                          date=datetime.datetime.now() + datetime.timedelta(days=_), meal_type='breakfast'))
