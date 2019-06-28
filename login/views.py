@@ -505,9 +505,9 @@ def purchase(request):
                 self = SelfListN.objects.get(self_id=self_id)
 
             except:
-                temp_dd = {}
-                temp_dd['status'] = "No Self"
-                return JsonResponse(temp_dd)
+                temp_ddd = {}
+                temp_ddd['status'] = "No Self"
+                return JsonResponse(temp_ddd)
 
             coupon_id = secrets.token_hex(8)
             data = {}
