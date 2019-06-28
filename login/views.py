@@ -35,7 +35,7 @@ def credit_change(change, student):
     try:
         #student = StudentN.objects.get(student_no=id)
         student.credit = student.credit + int(change)
-        student.update()
+        student.save()
     except:
         return
 
