@@ -133,7 +133,21 @@ def logout(request):
         req = request.read()
         j = json.loads(req)
         token = j['token']
-        if token_check(token):
+
+        #only for testing
+        if(token == 'N'):
+            try:
+                username_out = j['username']
+                st = cred.objects.get(username=username_out)
+                if st is not None:
+                    st.delete()
+                    return HttpResponse("OK")
+                else:
+                    return HttpResponse('You are not lgged in')
+            except:
+                1==1
+
+        elif token_check(token):
             st = cred.objects.get(token=token)
             if st is not None:
                 st.delete()
