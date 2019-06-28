@@ -240,12 +240,12 @@ def get_saturday(date):
         return date - timedelta(days=6)
 
 
-def week_map():
-    ofs = jdatetime.datetime.now().weekday()
-    ofsm = jdatetime.datetime.now().day - (7 - ofs)
-    bad_ofs = [32, 33, 34, 35, 36, 37, 38]
-    a = [_ for _ in range(ofsm, ofs + 8)]
-    return [element for element in a if element not in bad_ofs]
+# def week_map():
+#     ofs = datetime.datetime.now().weekday()
+#     ofsm = datetime.datetime.now().day - (7 - ofs)
+#     bad_ofs = [32, 33, 34, 35, 36, 37, 38]
+#     a = [_ for _ in range(ofsm, ofs + 8)]
+#     return [element for element in a if element not in bad_ofs]
 
 
 def get_week_data():
