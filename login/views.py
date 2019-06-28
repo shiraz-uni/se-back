@@ -251,7 +251,7 @@ def get_saturday(date):
 def get_week_data():
     sf_data = {}
     s_d = {}
-    saturday = get_saturday(datetime.now())
+    saturday = get_saturday(datetime.datetime.now())
 
     for _ in range(7):
         try:
@@ -462,13 +462,13 @@ def self_data(request):
             if token_check(token):
                 data["self_data"] = get_week_data()
                 data["student"] = get_student(std)
-                data["coupons"] = get_week_coupons(datetime.now(), std)
+                data["coupons"] = get_week_coupons(datetime.datetime.now(), std)
 
                 return JsonResponse(data)
             else:
                 return HttpResponse('You are not logged in')
-        except:
-            return HttpResponse('You are not logged in')
+        except Exception as e:
+            return HttpResponse('Something went wrong ' + str(e))
     else:
         return HttpResponse('invalid request')
 
