@@ -8,7 +8,7 @@ from .models import StudentN, cred, SelfListN, TransactionN, FoodMenuN, CouponN
 from datetime import datetime
 from datetime import timedelta
 import math
-import jdatetime
+import datetime
 
 
 def compare_date(d, dt):
