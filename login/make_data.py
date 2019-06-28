@@ -47,7 +47,7 @@ class MakeData:
             a = random.randint(0, 6)
             b = random.randint(0, 6)
             while b == a:
-                b = random.randint(0, 7)
+                b = random.randint(0, 6)
             c = random.randint(0, 3)
             d = random.randint(0, 3)
             while d == c:
