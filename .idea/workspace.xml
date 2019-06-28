@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fixing purchase">
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix week data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
     </list>
@@ -20,8 +20,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-109">
-              <caret line="276" column="21" selection-start-line="276" selection-start-column="21" selection-end-line="276" selection-end-column="21" />
+            <state relative-caret-position="95">
+              <caret line="279" column="15" lean-forward="true" selection-start-line="279" selection-start-column="15" selection-end-line="279" selection-end-column="15" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -446,7 +446,21 @@
       <option name="project" value="LOCAL" />
       <updated>1561721996548</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="testing">
+      <created>1561731389908</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1561731389908</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix week data">
+      <created>1561731687120</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1561731687120</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -469,7 +483,7 @@
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.14505672" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2571912" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2571912" />
       <window_info id="Favorites" order="2" sideWeight="0.50080514" side_tool="true" weight="0.18314424" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -528,8 +542,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add get coupon" />
-    <MESSAGE value="get coupon minor change" />
     <MESSAGE value="added functions to self_data" />
     <MESSAGE value="added functions to se" />
     <MESSAGE value="fix get food" />
@@ -553,7 +565,9 @@
     <MESSAGE value="data generator" />
     <MESSAGE value="data generator fix error" />
     <MESSAGE value="fixing purchase" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing purchase" />
+    <MESSAGE value="testing" />
+    <MESSAGE value="fix week data" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix week data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -972,8 +986,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
-          <caret line="276" column="21" selection-start-line="276" selection-start-column="21" selection-end-line="276" selection-end-column="21" />
+        <state relative-caret-position="95">
+          <caret line="279" column="15" lean-forward="true" selection-start-line="279" selection-start-column="15" selection-end-line="279" selection-end-column="15" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
