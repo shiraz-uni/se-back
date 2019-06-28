@@ -513,6 +513,12 @@ def purchase(request):
             data = {}
             if token_check(token) and food is not None and self is not None:
                 data["status"] = "purchased"
+                if(food.meal_type != "lunch" and std.std_type == "غیر خوابگاهی"):
+                    datatt["status"] = "you can't buy this type of meal"
+                    return JsonResponse(datatt)
+                if ((int(state) == 1 and std.credit < food.price1) or (int(state) != 1 and std.credit < food.price2)):
+                    datattt['status'] = "you don't have enough credit"
+                    return JsonResponse(datattt)
                 CouponN(coupon_id=coupon_id, state=state, food=food, student=std, self_id=self).save()
                 if int(state):
                     credit_change(-food.price1, std)
