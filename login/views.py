@@ -270,7 +270,7 @@ def get_week_data():
             sf_data["key_id"] = \
                 FoodMenuN.objects.all().filter(date__month=(saturday+timedelta(days=_)).month, date__day=(saturday+timedelta(days=_)).day, meal_type="breakfast")[
                     0].key_id
-            s_d['2019/' + str(datetime.now().month) + '/' + str(_) + '_breakfast'] = sf_data
+            s_d['2019/' + (saturday+timedelta(days=_)).month + '/' + (saturday+timedelta(days=_)).day + '_breakfast'] = sf_data
             sf_data = {}
         except:
             pass
@@ -291,7 +291,7 @@ def get_week_data():
             sf_data["key_id"] = \
                 FoodMenuN.objects.all().filter(date__month=(saturday+timedelta(days=_)).month, date__day=(saturday+timedelta(days=_)).day, meal_type="lunch")[
                     0].key_id
-            s_d['2019/' + str(datetime.now().month) + '/' + str(_) + '_lunch'] = sf_data
+            s_d['2019/' + (saturday+timedelta(days=_)).month + '/' + (saturday+timedelta(days=_)).day + '_lunch'] = sf_data
             sf_data = {}
         except:
             pass
@@ -312,7 +312,7 @@ def get_week_data():
             sf_data["key_id"] = \
                 FoodMenuN.objects.all().filter(date__month=(saturday+timedelta(days=_)).month, date__day=(saturday+timedelta(days=_)).day, meal_type="dinner")[
                     0].key_id
-            s_d['2019/' + str(datetime.now().month) + '/' + str(_) + '_dinner'] = sf_data
+            s_d['2019/' + (saturday+timedelta(days=_)).month + '/' + (saturday+timedelta(days=_)).day + '_dinner'] = sf_data
             sf_data = {}
         except:
             pass
