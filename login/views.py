@@ -386,7 +386,8 @@ def get_week_coupons(day, std):
                 coupon["food_name2"] = lst[i].food.food_name2
                 coupon["price1"] = lst[i].food.price1
                 coupon["price2"] = lst[i].food.price2
-                coupon["self_name"] = lst[i].self_id.self_name
+                coupon["self_name"] = lst[i].self_id.self_id
+                coupon["self"] = lst[i].self_id.self_name
                 data['2019/' + lst[i].food.date.strftime('%m/%d') + '_' + lst[i].food.meal_type] = coupon
                 coupon = {}
             i += 1
