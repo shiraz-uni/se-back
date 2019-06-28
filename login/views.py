@@ -489,7 +489,7 @@ def purchase(request):
         token = j['token']
         food_id = j['food_id']
         state = j['state']
-        self = j['self']
+        self_id = j['self']
         try:
             st = cred.objects.get(token=token)
             temp_user_id = st.username
@@ -501,10 +501,17 @@ def purchase(request):
                 temp_dd = {}
                 temp_dd['status'] = "No Food"
                 return JsonResponse(temp_dd)
+            try:
+                self = SelfListN.objects.get(self_id=self_id)
+
+            except:
+                temp_dd = {}
+                temp_dd['status'] = "No Self"
+                return JsonResponse(temp_dd)
 
             coupon_id = secrets.token_hex(8)
             data = {}
-            if token_check(token):
+            if token_check(token) and food is not None and self is not None:
                 data["status"] = "purchased"
                 CouponN(coupon_id=coupon_id, state=state, food=food, student=std, self_id=self).save()
                 if int(state):
