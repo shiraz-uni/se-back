@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="added purchase functionality and response">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="purchase debugging">
       <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="513" column="75" selection-start-line="513" selection-start-column="75" selection-end-line="513" selection-end-column="75" />
+            <state relative-caret-position="262">
+              <caret line="508" column="44" selection-start-line="508" selection-start-column="44" selection-end-line="508" selection-end-column="44" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -383,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561649953274</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="purchase debugging">
+      <created>1561709447245</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1561709447245</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView">
@@ -487,7 +493,8 @@
     <MESSAGE value="add year to coupons list" />
     <MESSAGE value="revert test changes" />
     <MESSAGE value="added purchase functionality and response" />
-    <option name="LAST_COMMIT_MESSAGE" value="added purchase functionality and response" />
+    <MESSAGE value="purchase debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="purchase debugging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -896,8 +903,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="513" column="75" selection-start-line="513" selection-start-column="75" selection-end-line="513" selection-end-column="75" />
+        <state relative-caret-position="262">
+          <caret line="508" column="44" selection-start-line="508" selection-start-column="44" selection-end-line="508" selection-end-column="44" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>

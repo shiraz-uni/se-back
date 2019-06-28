@@ -518,6 +518,7 @@ def purchase(request):
                     credit_change(-food.price1, std)
                 else:
                     credit_change(-food.price2, std)
+                return JsonResponse(data)
             else:
                 return HttpResponse('You are not logged in')
         except:
