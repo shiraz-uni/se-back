@@ -511,6 +511,8 @@ def purchase(request):
 
             coupon_id = secrets.token_hex(8)
             data = {}
+            datatt = {}
+            datattt = {}
             if token_check(token) and food is not None and self is not None:
                 data["status"] = "purchased"
                 if(food.meal_type != "lunch" and std.std_type == "غیر خوابگاهی"):
