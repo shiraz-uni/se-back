@@ -8,6 +8,7 @@ from .models import StudentN, cred, SelfListN, TransactionN, FoodMenuN, CouponN
 from datetime import datetime
 from datetime import timedelta
 import math
+import jdatetime
 
 
 def compare_date(d, dt):
@@ -145,15 +146,18 @@ def logout(request):
                 else:
                     return HttpResponse('You are not lgged in')
             except:
-                1==1
+                return HttpResponse("Wrong credentials")
 
         elif token_check(token):
-            st = cred.objects.get(token=token)
-            if st is not None:
-                st.delete()
-                return HttpResponse("OK")
-            else:
-                return HttpResponse('You are not lgged in')
+            try:
+                st = cred.objects.get(token=token)
+                if st is not None:
+                    st.delete()
+                    return HttpResponse("OK")
+                else:
+                    return HttpResponse('You are not lgged in')
+            except:
+                return HttpResponse("Wrong credentials")
         else:
             return HttpResponse("Wrong credentials")
     else:
@@ -237,21 +241,11 @@ def get_saturday(date):
 
 
 def week_map():
-    ofs = datetime.now().day - datetime.now().weekday() - 1
+    ofs = jdatetime.datetime.now().weekday()
+    ofsm = jdatetime.datetime.now().day - ( 7 - ofs)
     bad_ofs = [32, 33, 34, 35, 36, 37, 38]
-    a = [_ for _ in range(ofs, ofs + 8)]
+    a = [_ for _ in range(ofsm, ofs + 8)]
     return [element for element in a if element not in bad_ofs]
-
-
-def week_map1():
-    if math.floor(datetime.now().day / 7) == 0:
-        return [1, 2, 3, 4, 5, 6]
-    elif math.floor(datetime.now().day / 7) == 1:
-        return [7, 8, 9, 10, 11, 12, 13]
-    elif math.floor(datetime.now().day / 7) == 2:
-        return [14, 15, 16, 17, 18, 19, 20]
-    else:
-        return [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 
 def get_week_data():
