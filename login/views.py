@@ -34,7 +34,7 @@ def compare_date(d, dt):
 def credit_change(change, id):
     try:
         student = StudentN.objects.get(student_no=id)
-        student.credit = student.credit + change
+        student.credit = student.credit + int(change)
         student.save()
     except:
         return
