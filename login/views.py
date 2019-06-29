@@ -249,7 +249,7 @@ def get_saturday(date):
 def get_week_data():
     sf_data = {}
     s_d = {}
-    saturday = get_saturday(datetime.datetime.now())
+    saturday = datetime.now() + timedelta(days=1)
 
     for _ in range(7):
         try:
