@@ -573,8 +573,8 @@ def increase_credit(request):
             std = StudentN.objects.get(student_no=temp_user_id)
             data = {}
             if token_check(token):
-                data["status"] = "credit increased " + abs(int(amount))
-                credit_change(abs(int(amount)), std)
+                data["status"] = "credit increased " + amount
+                credit_change(amount, std)
                 return JsonResponse(data)
             else:
                 return HttpResponse('You are not logged in')
