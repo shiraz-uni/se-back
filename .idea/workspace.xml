@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix error">
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="make some changes asked">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
     </list>
@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="388" column="60" selection-start-line="388" selection-start-column="60" selection-end-line="388" selection-end-column="60" />
+            <state relative-caret-position="376">
+              <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -86,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="63" column="15" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="15" />
+            <state relative-caret-position="152">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -481,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561732401209</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="make some changes asked">
+      <created>1561755715024</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1561755715024</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView">
@@ -504,7 +511,7 @@
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.14505672" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.37394246" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.37394246" />
       <window_info id="Favorites" order="2" sideWeight="0.50080514" side_tool="true" weight="0.18314424" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -553,7 +560,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix get food" />
     <MESSAGE value="added todo" />
     <MESSAGE value="fix coupons data" />
     <MESSAGE value="fix coupons date" />
@@ -578,7 +584,8 @@
     <MESSAGE value="fix week data" />
     <MESSAGE value="fix week data new bugs" />
     <MESSAGE value="fix error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix error" />
+    <MESSAGE value="make some changes asked" />
+    <option name="LAST_COMMIT_MESSAGE" value="make some changes asked" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -988,20 +995,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
+    <entry file="file://$PROJECT_DIR$/login/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="388" column="60" selection-start-line="388" selection-start-column="60" selection-end-line="388" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/models.py">
+    <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="63" column="15" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="15" />
+        <state relative-caret-position="376">
+          <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

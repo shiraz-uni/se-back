@@ -408,7 +408,7 @@ def delete_coupon(coupon_id, std):
                 credit_change(coupon.food.price2, coupon.student)
             coupon.delete()
         else:
-            return -2
+            return -1
     except Exception as e:
         return ('Failed to upload to ftp: ' + str(e))
 
