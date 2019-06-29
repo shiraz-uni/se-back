@@ -557,6 +557,33 @@ def purchase(request):
     else:
         return HttpResponse('invalid request')
 
+
+@csrf_exempt
+def increase_credit(request):
+    if request.method == 'GET':
+        return HttpResponse('Post')
+    elif request.method == 'POST':
+        req = request.read()
+        j = json.loads(req)
+        token = j['token']
+        amount = j['amount']
+        try:
+            st = cred.objects.get(token=token)
+            temp_user_id = st.username
+            std = StudentN.objects.get(student_no=temp_user_id)
+            data = {}
+            if token_check(token):
+                data["status"] = "credit increased " + abs(int(amount))
+                credit_change(abs(int(amount)), std)
+                return JsonResponse(data)
+            else:
+                return HttpResponse('You are not logged in')
+        except:
+            return HttpResponse('You are not logged in')
+    else:
+        return HttpResponse('invalid request')
+
+
 def stat(request):
     st = cred.objects.all()
     val_em = (len(st)/150)*100
