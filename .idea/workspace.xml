@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="make some changes asked">
+    <list default="true" id="970fc077-7199-45f5-877c-8317b493d34a" name="Default Changelist" comment="fix delete response massage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
     </list>
@@ -20,8 +20,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
+            <state relative-caret-position="159">
+              <caret line="376" column="57" selection-start-line="376" selection-start-column="57" selection-end-line="376" selection-end-column="57" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -32,7 +32,7 @@
       <file leaf-file-name="make_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/make_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="748">
               <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
@@ -89,8 +89,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            <state relative-caret-position="289">
+              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -112,6 +112,8 @@
       <find>and</find>
       <find>week</find>
       <find>week_map</find>
+      <find>delete</find>
+      <find>compare_date</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -488,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561755715024</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix delete response massage">
+      <created>1561756591765</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1561756591765</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -511,7 +520,7 @@
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.14505672" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.37394246" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.37394246" />
       <window_info id="Favorites" order="2" sideWeight="0.50080514" side_tool="true" weight="0.18314424" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -560,7 +569,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added todo" />
     <MESSAGE value="fix coupons data" />
     <MESSAGE value="fix coupons date" />
     <MESSAGE value="added make data" />
@@ -585,7 +593,8 @@
     <MESSAGE value="fix week data new bugs" />
     <MESSAGE value="fix error" />
     <MESSAGE value="make some changes asked" />
-    <option name="LAST_COMMIT_MESSAGE" value="make some changes asked" />
+    <MESSAGE value="fix delete response massage" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix delete response massage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -987,7 +996,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/make_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="748">
           <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
@@ -997,15 +1006,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        <state relative-caret-position="289">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
+        <state relative-caret-position="159">
+          <caret line="376" column="57" selection-start-line="376" selection-start-column="57" selection-end-line="376" selection-end-column="57" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>

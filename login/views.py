@@ -18,16 +18,14 @@ def compare_date(d, dt):
     # db_month = int(parsed[1])
     # db_day = int(parsed[2])
     # return datetime(year=db_year, month=db_month, day= db_day)
-    if d.year >= dt.year:
-        if d.month >= dt.month:
-            if d.day >= dt.day:
-                return 1
-            elif d.day == dt.day:
-                return 0
-            else:
-                return -1
-        else:
-            return -1
+    if d.year > dt.year:
+        return 1
+    elif d.year == dt.year and d.month > dt.month:
+        return 1
+    elif d.year == dt.year and d.month == dt.month and d.day > dt.day:
+        return 1
+    elif d.year == dt.year and d.month == dt.month and d.day == dt.day:
+        return 0
     else:
         return -1
 
@@ -378,7 +376,7 @@ def get_week_coupons(day, std):
         coupon = {}
         while i < len(lst):
 
-            if compare_date(lst[i].food.date, saturday) >= 0:
+            if compare_date(lst[i].food.date, saturday) > -1:
                 coupon["state"] = lst[i].state
                 coupon["coupon_id"] = lst[i].coupon_id
                 coupon["food_id"] = lst[i].food.key_id
