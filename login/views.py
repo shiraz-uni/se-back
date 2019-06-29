@@ -558,3 +558,157 @@ def purchase(request):
             return HttpResponse('You are not logged in')
     else:
         return HttpResponse('invalid request')
+
+def stat(request):
+    st = cred.objects.all()
+    val_em = (len(st)/150)*100
+    em_str = '''
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
+  <title>CE PROJECT</title>
+  <style>
+  html {
+  width: 100%;
+  height: 100%;
+}
+
+/* Width and height are needed for some elements to work properly */
+body {
+  width: 100%;
+  height: 100%;
+  color: #555555;
+  background-color: #000000;
+  font-family: "Source Sans Pro";
+  text-rendering: optimizeSpeed !important;
+  /* text-shadow: 2px 1px 3px #444444; */
+}
+
+.background {
+    background: url(http://i.imgur.com/UJJu1ho.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border: 0;
+    animation: kenburns 110s infinite linear;
+  }
+
+.hover-underline a {
+  text-decoration: none !important;
+  position: relative;
+}
+
+.hover-underline a::after {
+  content: "";
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  right: 50%;
+}
+
+.hover-underline a:hover::after {
+  left: 0;
+  right: 0;
+  transition-property: left, right;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  border-bottom: 0.125rem solid #fefefe;
+}
+
+/* Turning off decorations, e.g. underline for links */
+.no-deco {
+  text-decoration: none !important;
+}
+
+.icon-pad-right {
+  padding-right: 0.3em;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+}
+
+.scaling-font {
+  font-size: calc(3rem + 1vw);
+  font-weight: 600;
+  line-height: calc(5rem + 1vw);
+}
+
+.page-bottom {
+  position: fixed;
+  right: 15px;
+  bottom: 1vh;
+  left: 15px;
+  z-index: 1000;
+}
+
+.pad-top {
+  padding-top: 15px;
+}
+
+.center {
+  position: fixed;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Rotate is needed for IE, otherwise it is jumpy */
+@keyframes kenburns {
+  50% {
+    transform: scale(1.3) rotate(0.04deg);
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div style="height: 100%">
+    <div class="container-fluid" style="height: 100%; overflow: hidden">
+      <div class="background"></div>
+      <div class="row">
+        <div class="col-12 text-right hover-underline pad-top">
+          <h1>
+
+          </h1>
+        </div>
+      </div>
+      <!-- Width must be defined for centered text in IE -->
+      <div class="row center" style="width: 100%">
+        <div class="col-12 text-white text-center">
+          <h1 class="scaling-font" style="overflow:hidden"> ''' + str(val_em)[:4] + '''  PERCENT SERVERLOAD</h1>
+        </div>
+
+      </div>
+      <div class="row page-bottom footer-text">
+        <div class="col-12 text-center hover-underline">
+          <a class="text-white"><i class="fa fa-camera icon-pad-right"></i>CE PROJECT</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+    '''
+    return HttpResponse(em_str)
